@@ -1,0 +1,422 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #f7f3ef;
+  --surface: #ffffff;
+  --sidebar: #faf7f3;
+  --secondary: #f1ece7;
+  --primary: #2e2926;
+  --primary-hover: #1e1a18;
+  --text: #1f1f1f;
+  --text-secondary: #6d6a67;
+  --text-muted: #a7a29d;
+  --border: #e8e1da;
+  --border-light: #efe9e3;
+  --success: #4f9d69;
+  --success-bg: rgba(79, 157, 105, 0.12);
+  --warning: #e8a53b;
+  --warning-bg: rgba(232, 165, 59, 0.14);
+  --danger: #d95c5c;
+  --danger-bg: rgba(217, 92, 92, 0.12);
+  --info: #3f6fb0;
+  --info-bg: rgba(63, 111, 176, 0.12);
+}
+
+.page {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+  font-family: "Inter", "Open Sans", "Segoe UI", Roboto, -apple-system,
+    BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  color: var(--text);
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+.pageInner {
+  width: 100%;
+  max-width: 990px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---------------- Shared card / section ---------------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(31, 31, 31, 0.04);
+  padding: 28px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ---------------- Add form (inline, shipping section) ---------------- */
+
+.formBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+  padding: 18px;
+  background: var(--sidebar);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.formButtons {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ---------------- Table ---------------- */
+
+.tableWrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.table thead tr {
+  background: var(--primary);
+}
+
+.table th {
+  color: #ffffff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 14px 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.table td {
+  text-align: center;
+  padding: 16px;
+  font-size: 14px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border-light);
+  background: var(--surface);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover td {
+  background: var(--sidebar);
+}
+
+.empty {
+  color: var(--text-muted);
+  padding: 32px 16px !important;
+  font-style: italic;
+}
+
+/* ---------------- Status badges (shipping + tracking) ---------------- */
+
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.active {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.inactive {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.transit {
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+.pending {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+/* ---------------- Row action buttons ---------------- */
+
+.rowActions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  /* flex-wrap: wrap;  */
+}
+
+.iconBtn {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s ease, background-color 0.15s ease;
+}
+
+.iconBtn:hover {
+  filter: brightness(0.97);
+}
+
+.edit {
+  background: var(--secondary);
+  color: var(--primary);
+  border-color: var(--border);
+}
+
+.delete {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+/* ---------------- Buttons (general) ---------------- */
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: filter 0.15s ease, background-color 0.15s ease, transform 0.05s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btnPrimary {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.btnPrimary:hover {
+  background: var(--primary-hover);
+}
+
+.btnSecondary {
+  background: var(--secondary);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btnSecondary:hover {
+  background: var(--border-light);
+}
+
+.btnDanger {
+  background: var(--danger);
+  color: #ffffff;
+}
+
+.btnDanger:hover {
+  filter: brightness(1.08);
+}
+
+/* ---------------- Inputs (shared) ---------------- */
+
+.input,
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input:focus,
+.select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(46, 41, 38, 0.1);
+}
+
+.input:disabled {
+  background: var(--secondary);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+/* ---------------- Modal (delivery charges / tracking sections) ---------------- */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 31, 31, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(31, 31, 31, 0.18);
+}
+
+.modalSmall {
+  max-width: 380px;
+}
+
+.modalTitle {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+.modalText {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.modalText strong {
+  color: var(--text);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 13px;
+  margin: 6px 0 0;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 992px) {
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+  }
+
+  .formBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .table th,
+  .table td {
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 20px 12px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .formBox {
+    grid-template-columns: 1fr;
+  }
+
+  .formButtons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .rowActions {
+    flex-direction: column;
+  }
+}
