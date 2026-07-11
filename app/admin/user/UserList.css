@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.user-list-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px;
+  background: #f7f3ef;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #2e2926;
+  font-weight: 700;
+}
+
+.user-table {
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.user-table thead {
+  background: #2e2926;
+}
+
+.user-table th {
+  color: #fff;
+  padding: 18px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.user-table td {
+  padding: 18px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+  font-size: 15px;
+}
+
+.user-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.user-table tbody tr:hover {
+  background: #faf7f3;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.active {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.status.blocked {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.block-btn,
+.unblock-btn {
+  border: none;
+  outline: none;
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.block-btn {
+  background: #dc2626;
+  color: white;
+}
+
+.block-btn:hover {
+  background: #b91c1c;
+}
+
+.unblock-btn {
+  background: #16a34a;
+  color: white;
+}
+
+.unblock-btn:hover {
+  background: #15803d;
+}
+
+@media (max-width: 992px) {
+  .user-list-container {
+    overflow-x: auto;
+  }
+
+  .user-table {
+    min-width: 900px;
+  }
+}
