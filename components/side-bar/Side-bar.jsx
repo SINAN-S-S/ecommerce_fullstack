@@ -51,12 +51,19 @@ const menuItems = [
     ],
   },
   {
-    title: "Customers",
+    title: "Users",
     icon: Users,
     children: [
       { name: "All Customers", path: "/admin/user" },
-      { name: "Customer Details", path: "/admin/customers/details" },
-      { name: "Customer Reviews", path: "/admin/customers/reviews" },
+      
+    ],
+  },
+   {
+    title: "Staff",
+    icon: Users,
+    children: [
+      { name: "All Staff", path: "/admin/staff" },
+      
     ],
   },
   {
