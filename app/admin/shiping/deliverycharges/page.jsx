@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import styles from "./shippingMethods.module.css";
+import styles from "../shippingMethods.module.css";
 
 export default function SettingsPage() {
   return (
