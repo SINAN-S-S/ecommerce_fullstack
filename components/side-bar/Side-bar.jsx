@@ -87,7 +87,8 @@ const menuItems = [
     icon: Truck,
     children: [
       { name: "Shipping Methods", path: "/admin/shiping" },
-    
+      { name: "Delivery Charges", path: "/admin/shiping/deliverycharges" },
+      { name: "Tracking", path: "/admin/shiping/tracking" },
     ],
   },
  
