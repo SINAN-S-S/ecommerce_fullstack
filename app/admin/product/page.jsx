@@ -39,7 +39,7 @@ export default function AllProductsPage() {
         </div>
         <div className="hero-actions">
           <button className="btn btn-secondary">Export CSV</button>
-          <Link href="/admin/product/add" className="btn btn-primary">+ Add Product</Link>
+          <Link href="/admin/product/add-product" className="btn btn-primary">+ Add Product</Link>
         </div>
       </div>
 

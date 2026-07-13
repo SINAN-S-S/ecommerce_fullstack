@@ -78,49 +78,40 @@ const menuItems = [
     title: "Coupons",
     icon: TicketPercent,
     children: [
-      { name: "All Coupons", path: "/admin/coupons/all" },
-      { name: "Create Coupon", path: "/admin/coupons/create" },
+      { name: "All Coupons", path: "/admin/coupons" },
+     
     ],
   },
   {
     title: "Shipping",
     icon: Truck,
     children: [
-      { name: "Shipping Methods", path: "/admin/shipping" },
-      { name: "Delivery Charges", path: "/admin/shipping/charges" },
-      { name: "Tracking", path: "/admin/shipping/tracking" },
+      { name: "Shipping Methods", path: "/admin/shiping" },
+    
     ],
   },
-  {
-    title: "Marketing",
-    icon: Megaphone,
-    children: [
-      { name: "Banners", path: "/admin/marketing/banners" },
-      { name: "Offers", path: "/admin/marketing/offers" },
-      { name: "Notifications", path: "/admin/marketing/notifications" },
-    ],
-  },
-  {
-    title: "Reports",
-    icon: BarChart3,
-    children: [
-      { name: "Sales Report", path: "/admin/reports/sales" },
-      { name: "Product Report", path: "/admin/reports/products" },
-      { name: "Customer Report", path: "/admin/reports/customers" },
-      { name: "Revenue Report", path: "/admin/reports/revenue" },
-    ],
-  },
-  {
-    title: "Settings",
-    icon: Settings,
-    children: [
-      { name: "Store Information", path: "/admin/settings/store-info" },
-      { name: "Payment Settings", path: "/admin/settings/payment" },
-      { name: "Shipping Settings", path: "/admin/settings/shipping" },
-      { name: "Tax Settings", path: "/admin/settings/tax" },
-      { name: "Account Settings", path: "/admin/settings/account" },
-    ],
-  },
+ 
+  // {
+  //   title: "Reports",
+  //   icon: BarChart3,
+  //   children: [
+  //     { name: "Sales Report", path: "/admin/reports/sales" },
+  //     { name: "Product Report", path: "/admin/reports/products" },
+  //     { name: "Customer Report", path: "/admin/reports/customers" },
+  //     { name: "Revenue Report", path: "/admin/reports/revenue" },
+  //   ],
+  // },
+  // {
+  //   title: "Settings",
+  //   icon: Settings,
+  //   children: [
+  //     { name: "Store Information", path: "/admin/settings/store-info" },
+  //     { name: "Payment Settings", path: "/admin/settings/payment" },
+  //     { name: "Shipping Settings", path: "/admin/settings/shipping" },
+  //     { name: "Tax Settings", path: "/admin/settings/tax" },
+  //     { name: "Account Settings", path: "/admin/settings/account" },
+  //   ],
+  // },
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
