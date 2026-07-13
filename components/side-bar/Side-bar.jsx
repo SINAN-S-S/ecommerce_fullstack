@@ -71,8 +71,7 @@ const menuItems = [
     icon: CreditCard,
     children: [
       { name: "Payment History", path: "/admin/payments" },
-      { name: "Pending Payments", path: "/admin/payments/pending" },
-      { name: "Refund Requests", path: "/admin/payments/refund-requests" },
+     
     ],
   },
   {
