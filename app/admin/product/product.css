@@ -1,4 +1,3 @@
-
 /* ---------- Layout shell ---------- */
 .admin-page {
   max-width: 1320px;
@@ -263,16 +262,18 @@
   outline: none;
 }
 
-/* ---------- Table (taller rows) ---------- */
+/* ---------- Table (taller rows, horizontal scroll on tablets) ---------- */
 .table-shell {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 2px 8px rgba(31,31,31,0.03);
 }
 .data-table {
   width: 100%;
+  min-width: 640px;
   border-collapse: collapse;
   font-size: 13.5px;
 }
@@ -288,6 +289,7 @@
   color: var(--text-secondary);
   padding: 18px 22px;
   border-bottom: 1px solid var(--border);
+  white-space: nowrap;
 }
 .data-table tbody tr {
   border-top: 1px solid var(--border-light);
@@ -484,22 +486,6 @@
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 900px) {
-  .stat-grid { grid-template-columns: repeat(2, 1fr); }
-  .tile-grid { grid-template-columns: repeat(2, 1fr); }
-  .form-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .stat-grid { grid-template-columns: 1fr; }
-  .tile-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .admin-page { padding: 20px 16px 48px; }
-  .page-hero { padding: 24px; }
-}
-
-
-
 /* ---------- Modal ---------- */
 .modal-backdrop {
   position: fixed;
@@ -523,6 +509,8 @@
   padding: 26px;
   box-shadow: 0 24px 60px rgba(31, 31, 31, 0.25);
   animation: slideUp 0.18s ease;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-header {
@@ -578,4 +566,285 @@
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------- Toggle switch ---------- */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toggle-pill {
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  transition: background-color 0.18s ease;
+  flex-shrink: 0;
+}
+.toggle-pill.on {
+  background: var(--success);
+}
+.toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  transition: transform 0.18s ease;
+}
+.toggle-pill.on .toggle-knob {
+  transform: translateX(20px);
+}
+.toggle-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet: 2-column grids, tighter spacing */
+@media (max-width: 1024px) {
+  .admin-page {
+    padding: 28px 24px 56px;
+  }
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-col {
+    gap: 18px;
+  }
+}
+
+/* Small tablet / large phone */
+@media (max-width: 768px) {
+  .admin-page {
+    padding: 22px 18px 48px;
+  }
+
+  .page-hero {
+    padding: 24px 22px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .hero-title {
+    font-size: 22px;
+  }
+  .hero-subtitle {
+    font-size: 13px;
+  }
+  .hero-actions {
+    width: 100%;
+  }
+  .hero-actions .btn {
+    flex: 1;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .stat-card {
+    padding: 16px 18px;
+  }
+  .stat-value {
+    font-size: 22px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+  }
+  .search-input,
+  .filter-select {
+    width: 100%;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .review-comment {
+    max-width: 100%;
+  }
+}
+
+/* Table → stacked cards on small screens */
+@media (max-width: 640px) {
+  .table-shell {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+  .data-table {
+    min-width: 0;
+  }
+  .data-table,
+  .data-table thead,
+  .data-table tbody,
+  .data-table th,
+  .data-table td,
+  .data-table tr {
+    display: block;
+    width: 100%;
+  }
+  .data-table thead {
+    display: none;
+  }
+  .data-table tbody tr {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    padding: 6px 4px;
+    box-shadow: 0 2px 8px rgba(31,31,31,0.04);
+  }
+  .data-table tbody tr:nth-child(even) {
+    background: var(--surface);
+  }
+  .data-table td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--border-light);
+    text-align: right;
+    min-height: 0;
+  }
+  .data-table td:first-child {
+    border-top: none;
+  }
+  .data-table td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    text-align: left;
+    flex-shrink: 0;
+  }
+  .data-table td .cell-with-thumb {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+  }
+  .data-table td .cell-with-thumb > div:last-child {
+    text-align: right;
+  }
+
+  .table-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-top: 4px;
+  }
+}
+
+/* Phone */
+@media (max-width: 560px) {
+  .admin-page {
+    padding: 16px 14px 40px;
+  }
+
+  .breadcrumb {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .page-hero {
+    padding: 20px 18px;
+    border-radius: 16px;
+  }
+  .hero-eyebrow {
+    font-size: 10.5px;
+  }
+  .hero-title {
+    font-size: 19px;
+  }
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tile-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .tile {
+    padding: 18px;
+  }
+
+  .section-title {
+    font-size: 14px;
+  }
+
+  .card {
+    border-radius: 14px;
+  }
+
+  .form-section-title {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .modal-card {
+    padding: 20px;
+    max-width: 100%;
+    border-radius: 14px;
+  }
+  .modal-title {
+    font-size: 15.5px;
+  }
+
+  .review-card::before {
+    font-size: 34px;
+    top: 6px;
+    right: 14px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .stat-value {
+    font-size: 20px;
+  }
+  .hero-title {
+    font-size: 17px;
+  }
+  .thumb,
+  .thumb-img {
+    width: 40px;
+    height: 40px;
+  }
 }
