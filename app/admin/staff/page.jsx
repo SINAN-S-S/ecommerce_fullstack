@@ -81,8 +81,8 @@ export default function StaffList() {
 
   return (
     <div className="staff-container">
-      <div className="header">
-        <h1>Staff List</h1>
+      <div className="Header">
+        <h1 id="text">Staff List</h1>
 
         <button
           className="add-staff-btn"

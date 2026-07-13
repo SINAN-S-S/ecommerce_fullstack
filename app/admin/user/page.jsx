@@ -69,9 +69,9 @@ export default function UsersPage() {
   };
 
   return (
-    <div className="user-list-container">
-      <div className="header">
-        <h1>User Management</h1>
+    <div id="userList-container" className="userList-container">
+      <div className="Header">
+        <h1 id="text">User Management</h1>
       </div>
 
       <table className="user-table">
