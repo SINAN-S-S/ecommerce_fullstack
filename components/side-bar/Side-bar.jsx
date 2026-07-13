@@ -47,12 +47,7 @@ const menuItems = [
     icon: Package,
     children: [
       { name: "All Orders", path: "/admin/orders" },
-      { name: "Pending Orders", path: "/admin/orders/pending" },
-      { name: "Processing", path: "/admin/orders/processing" },
-      { name: "Shipped", path: "/admin/orders/shipped" },
-      { name: "Delivered", path: "/admin/orders/delivered" },
-      { name: "Cancelled", path: "/admin/orders/cancelled" },
-      { name: "Returns & Refunds", path: "/admin/orders/returns-refunds" },
+      
     ],
   },
   {
